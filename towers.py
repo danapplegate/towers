@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 class Towers:
 	"""A class for solving the Towers of Hanoi challenge"""
 

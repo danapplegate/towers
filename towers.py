@@ -31,7 +31,28 @@ class Towers:
 
 
 if __name__ == "__main__":
-	n = int(raw_input())
+
+	import argparse
+	import sys
+
+	parser = argparse.ArgumentParser(description="Utility to solve the Towers \
+	of Hanoi in Python.")
+	parser.add_argument('rings', type=int, nargs="?", default=None, \
+	help="number of rings in this puzzle")
+	parser.add_argument('-i', '--interactive', action='store_true', \
+	help="step through the solution")
+
+	args = parser.parse_args()
+
+	n = args.rings
+
+	if not n:
+		n = int(raw_input())
+
 	towers = Towers(n)
 	for step in towers.solve():
-		print step
+		if args.interactive:
+			print step,
+			raw_input()
+		else:
+			print step
